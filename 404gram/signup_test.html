@@ -37,7 +37,7 @@
         <input type="file" id="profile_image" name="profile_image" class="file-input" accept="image/*"
           onchange="previewImage(event)">
       </div>
-
+      <!-- <input type="button" value="test" onclick="hideProfileImg()"> -->
 
       <!-- 첫번째 방법, 사진을 선택하는 버튼을 따로 해서 구현방법 -->
       <!-- <div class="form-group">
@@ -102,7 +102,12 @@
 
 
       reader.readAsDataURL(event.target.files[0]);
+      hideProfileImg()
 
+
+    }
+
+    function hideProfileImg() {
       // 기본 이미지 숨기기
       var defaultImage = document.getElementById('preview_userImage');
       if (defaultImage) {
