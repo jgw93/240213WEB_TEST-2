@@ -16,7 +16,7 @@
         height: 150px;
     }
 
-    #top-bar {
+    #header {
         width: 100%;
         height: 150px;
         background-color: skyblue;
@@ -42,7 +42,7 @@
         object-fit: cover;
     }
 
-    #center-box {
+    #container {
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -52,7 +52,7 @@
         margin-left: 720px;
     }
 
-    #bottom-bar {
+    #footer {
         display: flex;
         width: 100%;
         height: 150px;
@@ -146,11 +146,12 @@
         margin-left: 400px;
 
     }
+    
 </style>
 
 <body>
 
-    <div id="top-bar">
+    <div id="header">
         <img id="logo" src="logo.png">
         <div id="title">
             <h1>테스트용 메신저</h1>
@@ -161,9 +162,9 @@
 
 
         <!-- <div id="profile-preview">
-            <img src="https://via.placeholder.com/50" alt="Profile">
-        </div> -->
-        <!-- <div class="dropdown">
+            <img src="background.png" alt="Profile">
+        </div>
+        <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 회원 정보
@@ -175,7 +176,7 @@
             </ul>
         </div> -->
     </div>
-    <div id="center-box">
+    <div id="container">
         <img class="background" src="background.png">
         <form id="login-form">
             <input type="text" placeholder="아이디">
@@ -183,6 +184,8 @@
             <input type="password" placeholder="비밀번호 재확인">
             <input type="tel" placeholder="휴대폰 번호">
             <input type="email" placeholder="이메일">
+            
+            
             <br>
             <a href="test_main.html">
                 <button type="button">확인</button>
@@ -195,12 +198,13 @@
 
 
         </form>
+        
         <div class="intro">
             <h4>시험 제출을 위한 테스트용<br>
                 메신저 홈페이지 회원 가입 화면 입니다.</h4>
         </div>
     </div>
-    <div id="bottom-bar">
+    <div id="footer">
         <h2 class="name">장규원 / 930824</h2>
         <div class="icon">
             <img src="call.png"> 010 - XXXX - XXXX<br>
