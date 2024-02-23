@@ -119,7 +119,7 @@ body {
 }
 
 .intro {
-    display: flex;
+    display: inline;
     position: absolute;
     white-space: nowrap;
     margin-right: 650px;
