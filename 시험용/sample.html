@@ -4,86 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>일정표</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
+    <title>메인 페이지</title>
+    <link rel="stylesheet" href="css/test.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 </head>
 
 <body>
 
-    <h1>일정표</h1>
+    <div id="header">
+        <img id="logo" src="logo.png">
+        <div id="title">
+            <h1>테스트용 메신저</h1>
+        </div>
+        <div id="hi">
+            <h5>안녕하세요 ***님</h5>
+        </div>
 
-    <table id="schedule-table">
-        <thead>
-            <tr>
-                <th>시간</th>
-                <th>월요일</th>
-                <th>화요일</th>
-                <th>수요일</th>
-                <th>목요일</th>
-                <th>금요일</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- 여기에 일정이 들어갈 내용 -->
-        </tbody>
-    </table>
+        <div id="profile-preview" onclick="openFileInput()">
+            <img id="profile-image" src="background.png" alt="Profile">
+            <br>
+            <input type="file" id="file-upload" accept="image/*" onchange="changeProfileImage(this)">
+        </div>
 
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                data-bs-toggle="dropdown" aria-expanded="false" onclick="showAlert()">
+                회원 정보
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">상세 정보</a></li>
+                <li><a class="dropdown-item" href="#">비밀번호 변경</a></li>
+                <li><a class="dropdown-item" href="#">회원 탈퇴</a></li>
+            </ul>
+        </div>
+    </div>
+    <div id="container">
+        <img class="background" src="background.png">
+        <form id="login-form">
+            <br>
+            <a href="test_rogin.html">
+                <button type="button">로그 아웃</button></a>
+        </form>
+        <div class="intro">
+            <h4>시험 제출을 위한 테스트용<br>
+                메신저 홈페이지 메인입니다.</h4>
+        </div>
+    </div>
+    <div id="footer">
+        <h2 class="name">장규원 / 930824</h2>
+        <div class="icon">
+            <img src="call.png"> 010 - XXXX - XXXX<br>
+            <img src="location.png"> 부산 진구 중앙대로, 파이낸셜 건물 4층<br>
+            <img src="company.png"> 부산 IT
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // 예제 일정 데이터
-        var scheduleData = [
-            { time: '09:00 - 10:00', monday: '일정1', tuesday: '일정2', wednesday: '', thursday: '일정3', friday: '' },
-            { time: '10:00 - 11:00', monday: '', tuesday: '일정4', wednesday: '', thursday: '일정5', friday: '일정6' },
-            // 추가적인 일정 데이터는 필요에 따라 추가 가능
-        ];
-
-        // 일정표를 생성하는 함수
-        function createScheduleTable() {
-            var tableBody = document.querySelector('#schedule-table tbody');
-
-            // 기존 내용 비우기
-            tableBody.innerHTML = '';
-
-            // 일정 데이터 반복
-            scheduleData.forEach(function (item) {
-                var row = document.createElement('tr');
-
-                // 시간 열 추가
-                var timeCell = document.createElement('td');
-                timeCell.textContent = item.time;
-                row.appendChild(timeCell);
-
-                // 월요일부터 금요일까지 열 추가
-                ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].forEach(function (day) {
-                    var cell = document.createElement('td');
-                    cell.textContent = item[day];
-                    row.appendChild(cell);
-                });
-
-                // 행을 테이블에 추가
-                tableBody.appendChild(row);
-            });
+        function openFileInput() {
+            document.getElementById('file-upload').click();
         }
 
-        // 초기 일정표 생성
-        createScheduleTable();
-    </script>
+        function changeProfileImage(input) {
+            var profileImageElement = document.getElementById('profile-image');
 
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    profileImageElement.src = e.target.result;
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function showAlert() {
+            alert('회원 탈퇴 이벤트 발생!');
+            // 여기에 실제 회원 탈퇴 로직을 추가할 수 있습니다.
+        }
+    </script>
 </body>
 
 </html>
