@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일정표</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>일정표</h1>
+
+    <table id="schedule-table">
+        <thead>
+            <tr>
+                <th>시간</th>
+                <th>월요일</th>
+                <th>화요일</th>
+                <th>수요일</th>
+                <th>목요일</th>
+                <th>금요일</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 여기에 일정이 들어갈 내용 -->
+        </tbody>
+    </table>
+
+    <script>
+        // 예제 일정 데이터
+        var scheduleData = [
+            { time: '09:00 - 10:00', monday: '일정1', tuesday: '일정2', wednesday: '', thursday: '일정3', friday: '' },
+            { time: '10:00 - 11:00', monday: '', tuesday: '일정4', wednesday: '', thursday: '일정5', friday: '일정6' },
+            // 추가적인 일정 데이터는 필요에 따라 추가 가능
+        ];
+
+        // 일정표를 생성하는 함수
+        function createScheduleTable() {
+            var tableBody = document.querySelector('#schedule-table tbody');
+
+            // 기존 내용 비우기
+            tableBody.innerHTML = '';
+
+            // 일정 데이터 반복
+            scheduleData.forEach(function (item) {
+                var row = document.createElement('tr');
+
+                // 시간 열 추가
+                var timeCell = document.createElement('td');
+                timeCell.textContent = item.time;
+                row.appendChild(timeCell);
+
+                // 월요일부터 금요일까지 열 추가
+                ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'].forEach(function (day) {
+                    var cell = document.createElement('td');
+                    cell.textContent = item[day];
+                    row.appendChild(cell);
+                });
+
+                // 행을 테이블에 추가
+                tableBody.appendChild(row);
+            });
+        }
+
+        // 초기 일정표 생성
+        createScheduleTable();
+    </script>
+
+</body>
+
+</html>
